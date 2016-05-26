@@ -16,7 +16,11 @@
   </properties>
 
   <dependencies>
-
+    <dependency>
+      <groupId>com.onlineshop</groupId>
+      <artifactId>app-controllers</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>appshop-web</finalName>
