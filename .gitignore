@@ -1,3 +1,7 @@
+.idea/
+.DS_Store
+*.swp
+*.iml
 target/
 pom.xml.tag
 pom.xml.releaseBackup
