@@ -15,5 +15,5 @@
     <!-- Maps '/' requests to the 'home' view -->
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:view-controller path="/profile" view-name="profile/index"/>
-    <context:component-scan base-package="com.onlineshop.controller"/>
+    <context:component-scan base-package="com.onlineshop"/>
 </beans>

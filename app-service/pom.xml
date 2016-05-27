@@ -3,7 +3,7 @@
   <parent>
     <artifactId>appshop</artifactId>
     <groupId>com.onlineshop</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -11,7 +11,8 @@
   <packaging>jar</packaging>
 
   <name>app-service</name>
-  <url>http://maven.apache.org</url>
+  <description>提供数据服务模块</description>
+  <url>https://github.com/junyug/onlineshop</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -4,7 +4,8 @@
 
   <groupId>com.onlineshop</groupId>
   <artifactId>appshop</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
+
   <modules>
     <module>app-web</module>
     <module>app-model</module>
@@ -15,14 +16,16 @@
   <packaging>pom</packaging>
 
   <name>appshop</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/junyug/onlineshop</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.vsersion>1.0-SNAPSHOT</project.vsersion>
     <testng.version>3.8.1</testng.version>
     <maven.version>3.3.9</maven.version>
     <jetty.version>9.3.9.v20160517</jetty.version>
     <log4j.version>1.2.17</log4j.version>
+    <slf4j.version>1.7.21</slf4j.version>
     <spring.version>4.2.6.RELEASE</spring.version>
     <spring-security.version>4.1.0.RELEASE</spring-security.version>
     <common-lang.version>2.6</common-lang.version>
@@ -32,6 +35,7 @@
     <maven-plugin-annotations.version>3.4</maven-plugin-annotations.version>
     <aspectjrt.version>1.8.9</aspectjrt.version>
     <javax-inject.version>1</javax-inject.version>
+    <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -61,6 +65,12 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- Security (used for CSRF protection only) -->
     <dependency>
@@ -78,13 +88,32 @@
       <artifactId>aspectjrt</artifactId>
       <version>${aspectjrt.version}</version>
     </dependency>
-
     <dependency>
       <groupId>javax.inject</groupId>
       <artifactId>javax.inject</artifactId>
       <version>${javax-inject.version}</version>
     </dependency>
-
+    <!-- logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
     <!-- Servlet -->
     <dependency>
       <groupId>org.apache.tomcat</groupId>
@@ -115,6 +144,7 @@
       <artifactId>jackson-databind</artifactId>
       <version>${jackson-databind.version}</version>
     </dependency>
+    <!-- Common Fileupload -->
     <dependency>
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
@@ -131,6 +161,11 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugin-tools</groupId>
+          <artifactId>maven-plugin-annotations</artifactId>
+          <version>${maven-plugin-annotations.version}</version>
+        </plugin>
+        <plugin>
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
           <version>${jetty.version}</version>
@@ -140,19 +175,15 @@
           <artifactId>tomcat7-maven-plugin</artifactId>
           <version>2.2</version>
         </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>${versions-maven-plugin.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-plugin-api</artifactId>
-        <version>${maven.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugin-tools</groupId>
-        <artifactId>maven-plugin-annotations</artifactId>
-        <version>${maven-plugin-annotations.version}</version>
-      </plugin>
+
     </plugins>
   </build>
 </project>

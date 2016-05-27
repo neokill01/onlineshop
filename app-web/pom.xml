@@ -3,32 +3,66 @@
   <parent>
     <artifactId>appshop</artifactId>
     <groupId>com.onlineshop</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>appshop-web</artifactId>
   <packaging>war</packaging>
+
   <name>appshop-web</name>
-  <url>http://maven.apache.org</url>
+  <description>app视图模块</description>
+  <url>https://github.com/junyug/onlineshop</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <module.core.resource>../app-core/src/main/resource</module.core.resource>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-controllers</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.onlineshop</groupId>
+      <artifactId>app-core</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <build>
     <finalName>appshop-web</finalName>
+    <resources>
+      <resource>
+        <directory>../app-core/src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
       </plugin>
+      <!--借​助​build-helper-maven-plugin插​件添加跟多的构建内容-->
+      <!--<plugin>-->
+        <!--<groupId>org.codehaus.mojo</groupId>-->
+        <!--<artifactId>build-helper-maven-plugin</artifactId>-->
+        <!--<version>1.10</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<id>add-resource</id>-->
+            <!--<goals>-->
+              <!--<goal>add-resource</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+              <!--<resources>-->
+                <!--<resource>-->
+                  <!--<directory>${module.core.resource}</directory>-->
+                <!--</resource>-->
+              <!--</resources>-->
+            <!--</configuration>-->
+          <!--</execution>-->
+        <!--</executions>-->
+      <!--</plugin>-->
     </plugins>
   </build>
 </project>
