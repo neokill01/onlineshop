@@ -8,12 +8,11 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
     <mvc:default-servlet-handler/>
-
+    <context:component-scan base-package="com.onlineshop.controller"/>
     <!--自动解析注解,如果不配置可能导致视图找不到-->
     <mvc:annotation-driven/>
-
     <!-- Maps '/' requests to the 'home' view -->
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:view-controller path="/profile" view-name="profile/index"/>
-    <context:component-scan base-package="com.onlineshop"/>
+
 </beans>

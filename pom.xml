@@ -4,7 +4,7 @@
 
   <groupId>com.onlineshop</groupId>
   <artifactId>appshop</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.2-SNAPSHOT</version>
 
   <modules>
     <module>app-web</module>
@@ -20,13 +20,14 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.vsersion>1.0-SNAPSHOT</project.vsersion>
+    <jdk.version>1.8</jdk.version>
     <testng.version>3.8.1</testng.version>
     <maven.version>3.3.9</maven.version>
     <jetty.version>9.3.9.v20160517</jetty.version>
     <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.7.21</slf4j.version>
     <spring.version>4.2.6.RELEASE</spring.version>
+    <hibernate.version>5.1.0.Final</hibernate.version>
     <spring-security.version>4.1.0.RELEASE</spring-security.version>
     <common-lang.version>2.6</common-lang.version>
     <common-io.version>2.5</common-io.version>
@@ -36,6 +37,8 @@
     <aspectjrt.version>1.8.9</aspectjrt.version>
     <javax-inject.version>1</javax-inject.version>
     <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
+    <c3p0.version>0.9.1.2</c3p0.version>
+    <mysql-connector-java.version>6.0.2</mysql-connector-java.version>
   </properties>
 
   <dependencyManagement>
@@ -47,21 +50,58 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Security (used for CSRF protection only) -->
       <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-web</artifactId>
+        <version>${spring-security.version}</version>
       </dependency>
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${testng.version}</version>
-        <scope>test</scope>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${hibernate.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>c3p0</groupId>
+        <artifactId>c3p0</artifactId>
+        <version>${c3p0.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-connector-java.version}</version>
+      </dependency>
+      <!-- Common Fileupload -->
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>${commons-fileupload.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${common-io.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
@@ -71,12 +111,6 @@
           <artifactId>commons-logging</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <!-- Security (used for CSRF protection only) -->
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-web</artifactId>
-      <version>${spring-security.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-lang</groupId>
@@ -144,36 +178,15 @@
       <artifactId>jackson-databind</artifactId>
       <version>${jackson-databind.version}</version>
     </dependency>
-    <!-- Common Fileupload -->
-    <dependency>
-      <groupId>commons-fileupload</groupId>
-      <artifactId>commons-fileupload</artifactId>
-      <version>${commons-fileupload.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>${common-io.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugin-tools</groupId>
-          <artifactId>maven-plugin-annotations</artifactId>
-          <version>${maven-plugin-annotations.version}</version>
-        </plugin>
-        <plugin>
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
           <version>${jetty.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -183,7 +196,14 @@
       </plugins>
     </pluginManagement>
     <plugins>
-
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+          <encoding>utf-8</encoding>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
