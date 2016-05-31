@@ -3,7 +3,7 @@
   <parent>
     <artifactId>appshop</artifactId>
     <groupId>com.onlineshop</groupId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>appshop-web</artifactId>
@@ -40,12 +40,16 @@
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-controllers</artifactId>
-      <version>1.0.2-SNAPSHOT</version>
+      <version>1.0.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-core</artifactId>
-      <version>1.0.2-SNAPSHOT</version>
+      <version>1.0.3-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
     </dependency>
   </dependencies>
   <build>

@@ -8,15 +8,12 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     <!--自动解析注解,如果不配置可能导致视图找不到-->
 
+    <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
-    <mvc:resources mapping="/static/**" location="/resources/"/>
     <context:component-scan base-package="com.onlineshop.controller"/>
 
-    <bean id="handlerMapping"
-          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-    </bean>
     <!-- Maps '/' requests to the 'home' view -->
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:view-controller path="/profile" view-name="profile/index"/>
-    <mvc:view-controller path="/admin" view-name="admin/index"/>
+    <mvc:view-controller path="/admin" view-name="admin/login"/>
 </beans>

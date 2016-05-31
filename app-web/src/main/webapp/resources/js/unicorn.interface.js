@@ -51,7 +51,7 @@ $(document).ready(function(){
 	$.gritter.add({
 		title:	'Unread messages',
 		text:	'You have 9 unread messages.',
-		image: 	'img/demo/envelope.png',
+		image: 	'/resources/img/demo/envelope.png',
 		sticky: false
 	});	
 	$('#gritter-notify .normal').click(function(){

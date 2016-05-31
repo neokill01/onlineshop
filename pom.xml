@@ -4,7 +4,7 @@
 
   <groupId>com.onlineshop</groupId>
   <artifactId>appshop</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
 
   <modules>
     <module>app-web</module>
@@ -39,6 +39,7 @@
     <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
     <c3p0.version>0.9.1.2</c3p0.version>
     <mysql-connector-java.version>6.0.2</mysql-connector-java.version>
+    <jstl.version>1.2</jstl.version>
   </properties>
 
   <dependencyManagement>
@@ -91,6 +92,12 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>${common-io.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${jstl.version}</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

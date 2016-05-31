@@ -18,7 +18,7 @@ public class User implements Serializable{
     private int id;
 
     @Size(min = 3)
-    private String username;
+    private String nickname;
 
     public int getId() {
         return id;
@@ -28,11 +28,11 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

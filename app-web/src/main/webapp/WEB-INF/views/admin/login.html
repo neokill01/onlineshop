@@ -4,55 +4,45 @@
         <title>Unicorn Admin</title>
 		<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/font-awesome.css" />
-        <link rel="stylesheet" href="css/unicorn-login.css" />
-    		<script type="text/javascript" src="js/respond.min.js"></script>
-	<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		  ga('create', 'UA-44987299-1', 'bootstrap-hunter.com');
-		  ga('send', 'pageview');
-
-		</script></head>    <body>
+		<link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/resources/css/font-awesome.css" />
+        <link rel="stylesheet" href="/resources/css/unicorn-login.css" />
+        <script type="text/javascript" src="/resources/js/respond.min.js"></script>
+    </head>
+    <body>
         <div id="container">
             <div id="logo">
-                <img src="img/logo.png" alt="" />
+                <img src="/resources/img/logo.png" alt="" />
             </div>
             <div id="user">
                 <div class="avatar">
                     <div class="inner"></div>
-                    <img src="img/demo/av1_1.jpg" />
+                    <img src="/resources/img/demo/av1_1.jpg" />
                 </div>
                 <div class="text">
                     <h4>Hello,<span class="user_name"></span></h4>
                 </div>
             </div>
             <div id="loginbox">            
-                <form id="loginform" action="index.html">
-    				<p>Enter username and password to continue.</p>
+                <form id="loginform" action="/admin/index">
+    				<p>输入用户名和密码进行登录</p>
                     <div class="input-group input-sm">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" id="username" placeholder="Username" />
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" id="username" placeholder="用户名" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" id="password" placeholder="Password" />
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" id="password" placeholder="密码" />
                     </div>
                     <div class="form-actions clearfix">
                         <div class="pull-left">
-                            <a href="#registerform" class="flip-link to-register blue">Create new account</a>
+                            <a href="#registerform" class="flip-link to-register blue">注册帐号</a>
                         </div>
                         <div class="pull-right">
-                            <a href="#recoverform" class="flip-link to-recover grey">Lost password?</a>
+                            <a href="#recoverform" class="flip-link to-recover grey">忘记密码?</a>
                         </div>
-                        <input type="submit" class="btn btn-block btn-primary btn-default" value="Login" />
+                        <input type="submit" class="btn btn-block btn-primary btn-default" value="登录" />
                     </div>
                     <div class="footer-login">
-                        <div class="pull-left text">
-                            Login with
-                        </div>
+                        <div class="pull-left text">第三方登录</div>
                         <div class="pull-right btn-social">
                             <a class="btn btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="btn btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
@@ -61,50 +51,50 @@
                     </div>
 
                 </form>
-                <form id="recoverform" action="#">
-    				<p>Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+                <form id="recoverform" action="/admin/forgetpwd">
+    				<p>输入您的电子邮件地址，我们会送你说明如何恢复密码。</p>
     				<div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="E-mail address" />
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="E-mail地址" />
                     </div>
                     <div class="form-actions clearfix">
                         <div class="pull-left">
-                            <a href="#loginform" class="grey flip-link to-login">Click to login</a>
+                            <a href="#loginform" class="grey flip-link to-login">返回登录</a>
                         </div>
                         <div class="pull-right">
-                            <a href="#registerform" class="blue flip-link to-register">Create new account</a>
+                            <a href="#registerform" class="blue flip-link to-register">注册帐号</a>
                         </div>
-                        <input type="submit" class="btn btn-block btn-inverse" value="Recover" />
+                        <input type="submit" class="btn btn-block btn-inverse" value="发送邮件" />
                     </div>
                 </form>
-                <form id="registerform" action="#">
-                    <p>Enter information required to register:</p>
+                <form id="registerform" action="/admin/reg">
+                    <p>填写以下信息注册帐号:</p>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" placeholder="Enter Username" />
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" placeholder="输入用户名" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="Choose Password" />
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="输入密码" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="Confirm password" />
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="再次输入密码" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="Enter E-mail address" />
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="请填写常用邮箱" />
                     </div>
                     <div class="form-actions clearfix">
                         <div class="pull-left">
-                            <a href="#loginform" class="grey flip-link to-login">Click to login</a>
+                            <a href="#loginform" class="grey flip-link to-login">已有帐号登录</a>
                         </div>
                         <div class="pull-right">
-                            <a href="#recoverform" class="grey flip-link to-recover">Lost password?</a>
+                            <a href="#recoverform" class="grey flip-link to-recover">忘记密码?</a>
                         </div>
-                        <input type="submit" class="btn btn-block btn-success" value="Register" />
+                        <input type="submit" class="btn btn-block btn-success" value="注册" />
                     </div>
                 </form>
             </div>
         </div>
         
-        <script src="js/jquery.min.js"></script>  
-        <script src="js/jquery-ui.custom.min.js"></script>
-        <script src="js/unicorn.login.js"></script> 
+        <script src="/resources/js/jquery.min.js"></script>
+        <script src="/resources/js/jquery-ui.custom.min.js"></script>
+        <script src="/resources/js/unicorn.login.js"></script>
     </body>
 </html>
