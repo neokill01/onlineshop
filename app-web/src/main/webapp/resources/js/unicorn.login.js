@@ -13,7 +13,20 @@ var recover_register = $('#recoverform, #registerform');
 var loginbox = $('#loginbox');
 var userbox = $('#user');
 var animation_speed = 300;
-
+function userRegister () {
+    $.ajax({
+        url: "/account/register",
+        type: "get",
+        data:{},
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+}
 $(document).ready(function(){
 
     var loc = window.location + '';
@@ -39,27 +52,32 @@ $(document).ready(function(){
         switch_container(register,login_recover,280);
     });
 
-    $('#loginform').submit(function(e){
-        var thisForm = $(this); 
-        var userinput = $('#username');
-        var passinput = $('#password');
-        if(userinput.val() == '' || passinput.val() == '') {
-            highlight_error(userinput);
-            highlight_error(passinput);
-            loginbox.effect('shake');
-            return false;
-        } else {
-            e.preventDefault();
-            loginbox.animate({'top':'+=100px','opacity':'0'},250,function(){
-                $('.user_name').text(userinput.val());
-                userbox.animate({'top':"+=75px",'opacity':'1'},250,function(){
-                    setTimeout(function(){
-                        thisForm.unbind('submit').submit();
-                    },600);
-                });
-            });
-            return true;
-        }       
+    //$('#loginform').submit(function(e){
+    //    var thisForm = $(this);
+    //    var userinput = $('#username');
+    //    var passinput = $('#password');
+    //    if(userinput.val() == '' || passinput.val() == '') {
+    //        highlight_error(userinput);
+    //        highlight_error(passinput);
+    //        loginbox.effect('shake');
+    //        return false;
+    //    } else {
+    //        e.preventDefault();
+    //        loginbox.animate({'top':'+=100px','opacity':'0'},250,function(){
+    //            $('.user_name').text(userinput.val());
+    //            userbox.animate({'top':"+=75px",'opacity':'1'},250,function(){
+    //                setTimeout(function(){
+    //                    thisForm.unbind('submit').submit();
+    //                },600);
+    //            });
+    //        });
+    //        return true;
+    //    }
+    //});
+
+    $('#loginform').on('click', '.btn-register', function (e) {
+        e.preventDefault();
+        userRegister();
     });
 
     $('#username, #password').on('keyup',function(){
