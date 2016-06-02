@@ -3,7 +3,7 @@
   <parent>
     <artifactId>appshop</artifactId>
     <groupId>com.onlineshop</groupId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>appshop-web</artifactId>
@@ -40,23 +40,46 @@
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-controllers</artifactId>
-      <version>1.0.3-SNAPSHOT</version>
+      <version>1.0.4-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-core</artifactId>
-      <version>1.0.3-SNAPSHOT</version>
+      <version>1.0.4-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>jstl</groupId>
       <artifactId>jstl</artifactId>
     </dependency>
   </dependencies>
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <runtime.env>../app-core/src/main/env/dev</runtime.env>
+      </properties>
+    </profile>
+    <profile>
+      <id>product</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <runtime.env>../app-core/src/main/env/product</runtime.env>
+      </properties>
+    </profile>
+  </profiles>
   <build>
     <finalName>appshop-web</finalName>
     <resources>
       <resource>
         <directory>../app-core/src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>${runtime.env}</directory>
       </resource>
     </resources>
     <plugins>
@@ -64,27 +87,6 @@
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
       </plugin>
-      <!--借​助​build-helper-maven-plugin插​件添加跟多的构建内容-->
-      <!--<plugin>-->
-        <!--<groupId>org.codehaus.mojo</groupId>-->
-        <!--<artifactId>build-helper-maven-plugin</artifactId>-->
-        <!--<version>1.10</version>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>add-resource</id>-->
-            <!--<goals>-->
-              <!--<goal>add-resource</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
-              <!--<resources>-->
-                <!--<resource>-->
-                  <!--<directory>${module.core.resource}</directory>-->
-                <!--</resource>-->
-              <!--</resources>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
-      <!--</plugin>-->
     </plugins>
   </build>
 </project>
