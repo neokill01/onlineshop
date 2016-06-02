@@ -1,23 +1,24 @@
 package com.onlineshop.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
+ * @author junyuy
  * @name User
  * @description 用户实体类
- * @author junyuy
  * @date 16/5/31
  */
+
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
     private static final long servialVersionUID = 1L;
+
     public User() {
     }
 
-    public User(String nickname, String headImg, String email, String phone, String username, String password, Integer status, Integer createTime, Integer updateTime) {
+    public User(String nickname, String headImg, String email, String phone, String username, String password, Integer status, Long createTime, Long updateTime) {
         this.nickname = nickname;
         this.headImg = headImg;
         this.email = email;
@@ -48,9 +49,9 @@ public class User implements Serializable {
     @Column(name = "status", length = 11)
     private Integer status;
     @Column(name = "c_t")
-    private Integer createTime;
+    private Long createTime;
     @Column(name = "u_t")
-    private Integer updateTime;
+    private Long updateTime;
 
     public Integer getId() {
         return id;
@@ -116,19 +117,19 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 
