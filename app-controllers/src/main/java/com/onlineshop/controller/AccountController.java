@@ -2,9 +2,10 @@ package com.onlineshop.controller;
 
 import com.onlineshop.model.User;
 import com.onlineshop.service.AccountService;
-import com.onlineshop.service.impl.AccountServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +26,7 @@ public class AccountController {
 
     private Logger logger = Logger.getLogger(AccountController.class);
     @Autowired
-    private AccountService userService = new AccountServiceImpl();
+    private AccountService accountService;
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -41,7 +42,7 @@ public class AccountController {
         user.setNickname("Neo");
         user.setPhone("18710025259");
         user.setStatus(1);
-        userService.register(user);
+        accountService.register(user);
         Map<String, User> data = new HashMap<>();
         data.put("user", user);
         Map jsonObj = new HashMap<>();

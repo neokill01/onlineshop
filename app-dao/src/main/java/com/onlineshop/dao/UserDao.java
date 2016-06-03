@@ -9,7 +9,7 @@ import java.util.List;
  * Created by neo on 16/6/3.
  */
 @Component
-public interface IUserDao {
+public interface UserDao {
     void createUser(User user);
     List<User> findAllUser();
     List<User> getUserByIds(List<String> ids);
