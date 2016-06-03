@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>appshop</artifactId>
@@ -7,11 +7,10 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>app-service</artifactId>
+  <artifactId>app-dao</artifactId>
   <packaging>jar</packaging>
 
-  <name>app-service</name>
-  <description>提供数据服务模块</description>
+  <name>app-dao</name>
   <url>https://github.com/junyug/onlineshop</url>
 
   <properties>
@@ -21,13 +20,13 @@
   <dependencies>
     <dependency>
       <groupId>com.onlineshop</groupId>
-      <artifactId>app-model</artifactId>
+      <artifactId>app-core</artifactId>
       <version>1.0.5-SNAPSHOT</version>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>com.onlineshop</groupId>
-      <artifactId>app-dao</artifactId>
+      <artifactId>app-model</artifactId>
       <version>1.0.5-SNAPSHOT</version>
       <type>jar</type>
     </dependency>

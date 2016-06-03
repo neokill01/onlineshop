@@ -4,6 +4,7 @@ import com.onlineshop.model.User;
 import com.onlineshop.service.AccountService;
 import com.onlineshop.service.impl.AccountServiceImpl;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +24,8 @@ import java.util.Map;
 public class AccountController {
 
     private Logger logger = Logger.getLogger(AccountController.class);
+    @Autowired
     private AccountService userService = new AccountServiceImpl();
-
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -37,15 +38,12 @@ public class AccountController {
         user.setCreateTime(Long.parseLong(String.valueOf(new Date().getTime())));
         user.setUpdateTime(Long.parseLong(String.valueOf(new Date().getTime())));
         user.setEmail(email);
-//        user.setId(1);
-//        user.setNickname("Neo");
-//        user.setPhone("18710025259");
-//        user.setStatus(1);
-//        user.setHeadImg("http://www.baidu.com");
-
-        User userInfo = userService.register(user);
-        Map<String, User> data = new HashMap<String, User>();
-        data.put("user", userInfo);
+        user.setNickname("Neo");
+        user.setPhone("18710025259");
+        user.setStatus(1);
+        userService.register(user);
+        Map<String, User> data = new HashMap<>();
+        data.put("user", user);
         Map jsonObj = new HashMap<>();
         jsonObj.put("code", 0);
         jsonObj.put("msg", "注册成功");

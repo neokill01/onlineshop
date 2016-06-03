@@ -9,5 +9,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface AccountService {
-    User register(User user);
+    void register(User user);
 }
