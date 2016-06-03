@@ -40,7 +40,7 @@ public class User implements Serializable {
     private String headImg;
     @Column(name = "email")
     private String email;
-    @Column(name = "phone", length = 45, unique = true)
+    @Column(name = "phone", length = 45, unique = false, nullable = true)
     private String phone;
     @Column(name = "username")
     private String username;

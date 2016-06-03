@@ -3,7 +3,7 @@
   <parent>
     <artifactId>appshop</artifactId>
     <groupId>com.onlineshop</groupId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.6-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>appshop-web</artifactId>
@@ -40,12 +40,12 @@
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-controllers</artifactId>
-      <version>1.0.5-SNAPSHOT</version>
+      <version>1.0.6-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.onlineshop</groupId>
       <artifactId>app-core</artifactId>
-      <version>1.0.5-SNAPSHOT</version>
+      <version>1.0.6-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>jstl</groupId>
@@ -56,7 +56,7 @@
     <profile>
       <id>dev</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
+        <activeByDefault>false</activeByDefault>
       </activation>
       <properties>
         <runtime.env>../app-core/src/main/env/dev</runtime.env>
@@ -65,7 +65,7 @@
     <profile>
       <id>product</id>
       <activation>
-        <activeByDefault>false</activeByDefault>
+        <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
         <runtime.env>../app-core/src/main/env/product</runtime.env>

@@ -4,8 +4,6 @@ import com.onlineshop.model.User;
 import com.onlineshop.service.AccountService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +25,7 @@ public class AccountController {
     private Logger logger = Logger.getLogger(AccountController.class);
     @Autowired
     private AccountService accountService;
+
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -40,7 +39,6 @@ public class AccountController {
         user.setUpdateTime(Long.parseLong(String.valueOf(new Date().getTime())));
         user.setEmail(email);
         user.setNickname("Neo");
-        user.setPhone("18710025259");
         user.setStatus(1);
         accountService.register(user);
         Map<String, User> data = new HashMap<>();

@@ -7,15 +7,15 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-  <context:annotation-config/>
-  <context:component-scan base-package="com.onlineshop">
-    <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-  </context:component-scan>
-  <!--自动解析注解,如果不配置可能导致视图找不到-->
-  <mvc:default-servlet-handler/>
-  <mvc:annotation-driven/>
-  <!-- Maps '/' requests to the 'home' view -->
-  <mvc:view-controller path="/" view-name="index"/>
-  <mvc:view-controller path="/profile" view-name="profile/index"/>
-  <mvc:view-controller path="/admin" view-name="admin/login"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.onlineshop.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--自动解析注解,如果不配置可能导致视图找不到-->
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+    <!-- Maps '/' requests to the 'home' view -->
+    <mvc:view-controller path="/" view-name="index"/>
+    <mvc:view-controller path="/profile" view-name="profile/index"/>
+    <mvc:view-controller path="/admin" view-name="admin/login"/>
 </beans>

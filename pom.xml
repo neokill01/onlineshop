@@ -4,7 +4,7 @@
 
   <groupId>com.onlineshop</groupId>
   <artifactId>appshop</artifactId>
-  <version>1.0.5-SNAPSHOT</version>
+  <version>1.0.6-SNAPSHOT</version>
 
   <modules>
     <module>app-web</module>
@@ -58,11 +58,7 @@
         <artifactId>spring-security-web</artifactId>
         <version>${spring-security.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-orm</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
+
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
@@ -110,6 +106,11 @@
       <version>${testng.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>

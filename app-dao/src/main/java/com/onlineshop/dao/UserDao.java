@@ -11,6 +11,8 @@ import java.util.List;
 @Component
 public interface UserDao {
     void createUser(User user);
+
     List<User> findAllUser();
+
     List<User> getUserByIds(List<String> ids);
 }
