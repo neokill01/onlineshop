@@ -47,8 +47,9 @@
     <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     <aspectjrt.version>1.9.26</aspectjrt.version>
     <versions-maven-plugin.version>2.16.2</versions-maven-plugin.version>
-    <!-- c3p0 0.9.1.2 是 JDBC 3 时代的实现，在 Java 17 下 Connection 代理缺少 JDBC 4 的 createClob()，必须升级 -->
-    <c3p0.version>0.9.5.5</c3p0.version>
+    <!-- c3p0 0.9.1.2 是 JDBC 3 时代的实现，在 Java 17 下 Connection 代理缺少 JDBC 4 的 createClob()，必须升级；
+         0.9.5.5 仍受 CVE-2026-27830（<0.12.0）与 CVE-2026-55223（<0.14.0）影响，故锁 0.14.2 -->
+    <c3p0.version>0.14.2</c3p0.version>
     <mysql-connector.version>8.4.0</mysql-connector.version>
   </properties>
 
