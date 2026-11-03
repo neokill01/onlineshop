@@ -2,11 +2,11 @@ package com.onlineshop.dao.impl;
 
 import com.onlineshop.dao.UserDao;
 import com.onlineshop.model.User;
-import org.springframework.orm.hibernate5.HibernateTemplate;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,12 +14,17 @@ import java.util.List;
  */
 @Repository
 public class UserDaoImpl implements UserDao {
-    @Resource
-    private HibernateTemplate hibernateTemplate;
+
+    /**
+     * Hibernate 6 起 Spring 不再提供 HibernateTemplate，
+     * 统一使用 JPA EntityManager（由 OpenEntityManagerInViewFilter 管理会话生命周期）。
+     */
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Transactional(readOnly = false)
     public void createUser(User user) {
-        hibernateTemplate.save(user);
+        entityManager.persist(user);
     }
 
     public List<User> getUserByIds(List<String> ids) {
